@@ -12,9 +12,16 @@ public class SchoolApp {
 
         ft.createAccount();
 
-        PartTimeMentor pt = container.getBean(PartTimeMentor.class);
 
+        PartTimeMentor pt = container.getBean(PartTimeMentor.class);
         pt.createAccount();
+
+
+        PartTimeMentor p1 = container.getBean("p1",PartTimeMentor.class);
+        p1.createAccount();
+
+        PartTimeMentor p2 = container.getBean("p2",PartTimeMentor.class);
+        p2.createAccount();
 
 
         System.out.println(container.getBean("fullTimeMentor"));
