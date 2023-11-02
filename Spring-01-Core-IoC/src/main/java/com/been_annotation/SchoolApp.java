@@ -17,8 +17,8 @@ public class SchoolApp {
         pt.createAccount();
 
 
-        PartTimeMentor p1 = container.getBean("p1",PartTimeMentor.class);
-        p1.createAccount();
+//        PartTimeMentor p1 = container.getBean("p1",PartTimeMentor.class);
+//        p1.createAccount();
 
         PartTimeMentor p2 = container.getBean("p2",PartTimeMentor.class);
         p2.createAccount();

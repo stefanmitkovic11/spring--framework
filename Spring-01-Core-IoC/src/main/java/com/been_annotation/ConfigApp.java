@@ -12,7 +12,9 @@ public class ConfigApp {
         return new FullTimeMentor();
     }
 
-    @Bean(name = "p1") @Primary
+//    @Bean(name = "p1")
+    @Bean
+    @Primary
     PartTimeMentor partTimeMentor() {
         return new PartTimeMentor();
     }
