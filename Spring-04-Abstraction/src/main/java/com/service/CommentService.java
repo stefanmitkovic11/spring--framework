@@ -8,17 +8,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 public class CommentService {
+
     private final CommentRepository commentRepository;
     private final CommentNotificationProxy commentNotificationProxy;
 
-
-    @Autowired
+//    @Autowired
     public CommentService(CommentRepository commentRepository, CommentNotificationProxy commentNotificationProxy) {
         this.commentRepository = commentRepository;
         this.commentNotificationProxy = commentNotificationProxy;
     }
 
-    @Autowired
+//    @Autowired
     public void publishComment(Comment comment) {
         commentRepository.storeComment(comment);
         commentNotificationProxy.sendComment(comment);
