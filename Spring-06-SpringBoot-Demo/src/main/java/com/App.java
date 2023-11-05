@@ -2,6 +2,7 @@ package com;
 
 import com.model.Comment;
 import com.service.CommentService;
+import lombok.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -20,6 +21,7 @@ public class App {
 		CommentService cs = context.getBean(CommentService.class);
 
 		cs.publishComment(comment);
+
 	}
 
 }

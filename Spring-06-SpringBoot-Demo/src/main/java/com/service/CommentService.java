@@ -4,6 +4,7 @@ import com.model.Comment;
 import com.proxy.CommentNotificationProxy;
 import com.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
@@ -13,17 +14,24 @@ import org.springframework.stereotype.Component;
 //@Lazy
 public class CommentService {
 
+    @Value("${name}")
+    private String name;
+    @Value("${server.port}")
+    private Integer port;
+
     private final CommentRepository commentRepository;
     private final CommentNotificationProxy commentNotificationProxy;
 
-//    @Autowired
+    //    @Autowired
     public CommentService(CommentRepository commentRepository, @Qualifier("emailNotification") CommentNotificationProxy commentNotificationProxy) {
         this.commentRepository = commentRepository;
         this.commentNotificationProxy = commentNotificationProxy;
         System.out.println("Test @Lazy");
+        System.out.println("Name: " + this.name);
+        System.out.println("Port: "+this.port);
     }
 
-//    @Autowired
+    //    @Autowired
     public void publishComment(Comment comment) {
         commentRepository.storeComment(comment);
         commentNotificationProxy.sendComment(comment);
