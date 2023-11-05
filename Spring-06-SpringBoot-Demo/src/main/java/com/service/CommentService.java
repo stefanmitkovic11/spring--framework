@@ -27,8 +27,8 @@ public class CommentService {
         this.commentRepository = commentRepository;
         this.commentNotificationProxy = commentNotificationProxy;
         System.out.println("Test @Lazy");
-        System.out.println("Name: " + this.name);
-        System.out.println("Port: "+this.port);
+        System.out.println("Name: " + name);
+        System.out.println("Port: "+port);
     }
 
     //    @Autowired
