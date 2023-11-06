@@ -16,4 +16,15 @@ public class HomeController {
     public String home2(){
         return "welcome.html";
     }
+
+    @RequestMapping
+    public String home3(){
+        return "welcome.html";
+    }
+
+
+    @RequestMapping("/user")
+    public String user(){
+        return "user/userInfo.html";
+    }
 }
