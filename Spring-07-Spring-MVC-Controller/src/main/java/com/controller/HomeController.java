@@ -22,9 +22,4 @@ public class HomeController {
         return "welcome.html";
     }
 
-
-    @RequestMapping("/user")
-    public String user(){
-        return "user/userInfo.html";
-    }
 }
