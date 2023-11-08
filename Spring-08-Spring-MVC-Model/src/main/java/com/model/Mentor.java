@@ -1,5 +1,6 @@
 package com.model;
 
+import com.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

@@ -1,27 +1,28 @@
 package com.controller;
 
-import com.model.Gender;
+import com.enums.Gender;
 import com.model.Mentor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class MentorController {
 
     @RequestMapping("/mentor")
-    public String mentorPage(Model model){
+    public String showTable(Model model){
 
-        Mentor m1 = new Mentor("Stefan","Mitkovic",20, Gender.MALE);
-        Mentor m2 = new Mentor("Samia","Smith",24, Gender.FEMALE);
-        Mentor m3 = new Mentor("Walter","James",22, Gender.MALE);
+        List<Mentor> mentorList = new ArrayList<>();
 
-        model.addAttribute("m1",m1);
-        model.addAttribute("m2",m2);
-        model.addAttribute("m3",m3);
+        mentorList.add(new Mentor("Stefan","Mitkovic",20, Gender.MALE));
+        mentorList.add(new Mentor("Samia","Smith",24, Gender.FEMALE));
+        mentorList.add(new Mentor("Walter","James",22, Gender.MALE));
 
+        model.addAttribute("mentors",mentorList);
 
-
-        return "mentor/mentorPage.html";
+        return "mentor/mentor-list.html";
     }
 }
