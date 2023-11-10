@@ -41,8 +41,38 @@
 <a th:href="@{/student/welcome(id=3)}">Link2</a> <br> <br>
 
 
-<a th:href="@{/student/welcome(id=${students.get(0).firstName})}">Link3</a>
+<a th:href="@{/student/welcome(name=${students.get(0).firstName})}">Link3</a> <br> <br>
 
+
+<!--Each-->
+
+<h2>Students: </h2>
+<table>
+
+    <thead>
+    <tr>
+        <td> <b> First Name </b></td>
+        <td> <b>Last Name </b></td>
+        <td><b> Age </b></td>
+        <td><b> State </b></td>
+    </tr>
+    </thead>
+
+    <tbody th:each="student : ${students}">
+
+    <tr>
+        <td th:text="${student.firstName}"></td>
+        <td th:text="${student.lastName}"></td>
+        <td th:text="${student.age}"></td>
+        <td th:text="${student.state}"></td>
+    </tr>
+
+    </tbody>
+
+</table>
+<ul>
+    <li th:each="student : ${students}" th:text="${student}"></li>
+</ul>
 
 
 
