@@ -6,7 +6,7 @@ import com.model.Student;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataGenerator {
+public class StudentDataGenerator {
 
     public static List<Student> getAllStudents(){
         List<Student> students = new ArrayList<>();

@@ -1,6 +1,6 @@
 package com;
 
-import com.bootstrap.DataGenerator;
+import com.bootstrap.StudentDataGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,7 +9,7 @@ public class ThymeleafApplication {
 
 	public static void main(String[] args) {
 
-		System.out.println(DataGenerator.getAllStudents());
+		System.out.println(StudentDataGenerator.getAllStudents());
 
 		SpringApplication.run(ThymeleafApplication.class, args);
 	}
