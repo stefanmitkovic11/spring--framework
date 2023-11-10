@@ -78,6 +78,17 @@
 
 
 
+<!-- Conditional Logic -->
+
+<div th:text="${students.get(0).age} > 25 ? 'Eligible': 'Not Eligible'"></div> <br>
+
+<div>
+    <span th:if="${students.get(0).state.equals('Arizona')}">Arizona</span>
+    <span th:unless="${students.get(0).state.equals('Arizona')}">Not Arizona</span>
+</div>
+
+
+
 
 
 </body>
