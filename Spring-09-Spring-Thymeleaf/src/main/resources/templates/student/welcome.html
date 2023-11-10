@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<img th:src="@{/images/welcome-38249.png}"/>
+<img src="@{/images/welcome-38249.png}" alt="stefa"/>
 
 <h1>Welcome New Student</h1>
 
@@ -24,6 +24,10 @@
 
 
 <h2 class="school">Welcome New Student With Custom CSS</h2>
+
+<div th:replace="/fragments/index :: footer-menu"></div>
+<div th:replace="/fragments/index :: main-menu"></div>
+
 
 </body>
 </html>
