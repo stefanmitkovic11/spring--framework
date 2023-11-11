@@ -4,6 +4,8 @@ import com.model.Mentor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Arrays;
@@ -26,5 +28,29 @@ public class MentorController {
 
         return "mentor/register";
     }
+
+
+    @PostMapping("/confirm")
+    public String userConfirm(@ModelAttribute("mentor") Mentor mentor, Model model) {
+
+        System.out.println(mentor);
+
+        model.addAttribute("mentor",mentor);
+
+        return "mentor/confirm";
+    }
+
+
+    @PostMapping("/confirm2")
+    public String userConfirm2(@ModelAttribute("mentor") Mentor mentor, Model model) {
+
+        System.out.println(mentor);
+
+        model.addAttribute("mentor",mentor);
+
+        return "redirect:/mentor/register";
+    }
+
+
 
 }
