@@ -1,6 +1,6 @@
-import com.config.ProjectConfig;
-import com.model.Comment;
-import com.service.CommentService;
+import company.config.ProjectConfig;
+import company.model.Comment;
+import company.service.CommentService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
