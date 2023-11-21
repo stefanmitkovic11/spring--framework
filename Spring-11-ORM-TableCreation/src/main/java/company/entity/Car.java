@@ -1,11 +1,15 @@
 package company.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 @Entity
+@Table(name = "cars")
+@Data
+@NoArgsConstructor
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,4 +17,10 @@ public class Car {
     private String model;
     private String make;
     private String color;
+
+    public Car(String model, String make, String color) {
+        this.model = model;
+        this.make = make;
+        this.color = color;
+    }
 }
