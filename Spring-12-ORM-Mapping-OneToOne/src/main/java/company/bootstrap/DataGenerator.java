@@ -2,6 +2,7 @@ package company.bootstrap;
 
 import company.entity.Department;
 import company.entity.Employee;
+import company.entity.Region;
 import company.enums.Gender;
 import company.repository.DepartmentRepository;
 import company.repository.EmployeeRepository;
@@ -28,14 +29,14 @@ public class DataGenerator implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         List<Employee> employeeList = new ArrayList<>();
-        List<Department> departmentList = new ArrayList<>();
+//        List<Department> departmentList = new ArrayList<>();
 
         Department d1 = new Department("Engineering","A1");
         Department d2 = new Department("Sales","A2");
         Department d3 = new Department("Marketing","A3");
         Department d4 = new Department("Customer Service","A4");
 
-        departmentList.addAll(Arrays.asList(d1,d2,d3,d4));
+//        departmentList.addAll(Arrays.asList(d1,d2,d3,d4));
 //        departmentRepository.saveAll(departmentList);
 
         Employee e1 = new Employee("Stefan","Mitkovic","stefan@gmail.com", LocalDate.now().minusDays(360), Gender.MALE,12332);
@@ -50,8 +51,19 @@ public class DataGenerator implements CommandLineRunner {
 
         employeeList.addAll(Arrays.asList(e1,e2,e3,e4));
 
-        employeeRepository.saveAll(employeeList);
+        Region r1 = new Region("USA", "Arlington");
+        Region r2 = new Region("USA", "Los Angeles");
+        Region r3 = new Region("USA", "San Antonio");
+        Region r4 = new Region("USA", "Washington DC");
 
+
+        e1.setRegion(r1);
+        e2.setRegion(r2);
+        e3.setRegion(r3);
+        e4.setRegion(r4);
+
+
+        employeeRepository.saveAll(employeeList);
 
     }
 }
