@@ -2,7 +2,6 @@ package company.entity;
 
 
 import company.enums.Gender;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,7 +12,6 @@ import java.time.LocalDate;
 @Table(name = "employees")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Employee extends BaseEntity {
     @Column(length = 50)
     private String firstName;
@@ -26,5 +24,19 @@ public class Employee extends BaseEntity {
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
     private int salary;
+
+//    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @JoinColumn(name = "department_id")
+    private Department department;
+
+    public Employee(String firstName, String lastName, String email, LocalDate hireDate, Gender gender, int salary) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.hireDate = hireDate;
+        this.gender = gender;
+        this.salary = salary;
+    }
 
 }
