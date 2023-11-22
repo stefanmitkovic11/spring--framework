@@ -1,10 +1,10 @@
-package company.spring10ormtablecreation;
+package company;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Spring10OrmTableCreationApplicationTests {
+class Spring12OrmMappingOneToOneApplicationTests {
 
     @Test
     void contextLoads() {
