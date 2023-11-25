@@ -1,9 +1,11 @@
 package company.bootstrap;
 
+import company.entity.Customer;
 import company.entity.Merchant;
 import company.entity.Payment;
 import company.entity.PaymentDetails;
 import company.enums.Status;
+import company.repository.CustomerRepository;
 import company.repository.MerchantRepository;
 import company.repository.PaymentRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -18,12 +20,13 @@ public class DataGenerator implements CommandLineRunner {
 
     private final PaymentRepository paymentRepository;
     private final MerchantRepository merchantRepository;
+    private final CustomerRepository customerRepository;
 
-    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository) {
+    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository, CustomerRepository customerRepository) {
         this.paymentRepository = paymentRepository;
         this.merchantRepository = merchantRepository;
+        this.customerRepository = customerRepository;
     }
-
 
     @Override
     public void run(String... args) throws Exception {
@@ -43,7 +46,14 @@ public class DataGenerator implements CommandLineRunner {
         payment1.setMerchant(merchant1);
         payment2.setMerchant(merchant1);
 
+        Customer customer1 = new Customer("stefanmitkovic","Mitkovic","Stefan","stefan@gmail.com","123 ABC STREET");
+
+        payment1.setCustomer(customer1);
+        payment2.setCustomer(customer1);
+
         merchantRepository.save(merchant1);
+
+        customerRepository.save(customer1);
 
 
         paymentRepository.save(payment1);
