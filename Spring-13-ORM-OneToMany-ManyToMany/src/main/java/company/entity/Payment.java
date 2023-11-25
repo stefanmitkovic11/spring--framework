@@ -4,7 +4,6 @@ import company.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -27,6 +26,9 @@ public class Payment {
 
     @OneToOne(cascade = CascadeType.ALL)
     private PaymentDetails paymentDetails;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Merchant merchant;
 
     public Payment(LocalDate createdDate, BigDecimal amount, Status paymentStatus) {
         this.createdDate = createdDate;
