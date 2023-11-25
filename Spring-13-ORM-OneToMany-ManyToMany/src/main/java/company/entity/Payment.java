@@ -27,7 +27,7 @@ public class Payment {
     @OneToOne(cascade = CascadeType.ALL)
     private PaymentDetails paymentDetails;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     private Merchant merchant;
 
     public Payment(LocalDate createdDate, BigDecimal amount, Status paymentStatus) {
