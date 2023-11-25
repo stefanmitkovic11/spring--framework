@@ -33,6 +33,9 @@ public class Payment {
     @ManyToOne
     private Customer customer;
 
+//    @OneToOne(cascade = CascadeType.ALL)
+//    private Cart cart;
+
     public Payment(LocalDate createdDate, BigDecimal amount, Status paymentStatus) {
         this.createdDate = createdDate;
         this.amount = amount;
