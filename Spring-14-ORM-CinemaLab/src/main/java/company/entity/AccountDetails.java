@@ -15,7 +15,7 @@ public class AccountDetails extends BaseEntity{
     private String country;
     private String city;
     private String state;
-    private int age;
+    private Integer age;
     private String postalCode;
     @Enumerated(EnumType.STRING)
     private Role role;
