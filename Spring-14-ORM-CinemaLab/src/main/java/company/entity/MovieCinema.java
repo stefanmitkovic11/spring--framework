@@ -5,15 +5,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Data
 @NoArgsConstructor
 public class MovieCinema extends BaseEntity{
 
-    @Column(columnDefinition = "DATE")
+    @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime dateTime;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Movie movie;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cinema cinema;
 }

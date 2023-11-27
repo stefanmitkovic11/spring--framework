@@ -17,8 +17,4 @@ public class Cinema extends BaseEntity {
 
     @ManyToOne
     private Location location;
-
-    @OneToMany(mappedBy = "cinema")
-    private List<MovieCinema> movieCinemaList;
-
 }
