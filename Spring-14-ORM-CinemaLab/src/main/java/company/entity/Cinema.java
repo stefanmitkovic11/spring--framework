@@ -4,17 +4,14 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Entity
-@Table(name = "cinemas")
 @Data
 @NoArgsConstructor
-public class Cinema extends BaseEntity {
+public class Cinema extends BaseEntity{
 
     private String name;
     private String sponsoredName;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Location location;
 }

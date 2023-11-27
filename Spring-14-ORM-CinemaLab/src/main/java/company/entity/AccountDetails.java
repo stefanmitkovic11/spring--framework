@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class AccountDetails extends BaseEntity {
+public class AccountDetails extends BaseEntity{
 
     private String name;
     private String address;
@@ -21,6 +21,6 @@ public class AccountDetails extends BaseEntity {
     private Role role;
 
     @OneToOne(mappedBy = "accountDetails")
-    private UserAccount userAccount;
+    private User userAccount;
 
 }

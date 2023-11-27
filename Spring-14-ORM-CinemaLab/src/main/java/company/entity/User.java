@@ -4,14 +4,11 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Entity
-@Table(name = "accounts")
+@Table(name = "user_account")
 @Data
 @NoArgsConstructor
-public class UserAccount extends BaseEntity {
-
+public class User extends BaseEntity{
 
     private String username;
     private String password;
@@ -19,7 +16,4 @@ public class UserAccount extends BaseEntity {
 
     @OneToOne
     private AccountDetails accountDetails;
-
-    @OneToMany(mappedBy = "userAccount")
-    private List<Ticket> ticketList;
 }

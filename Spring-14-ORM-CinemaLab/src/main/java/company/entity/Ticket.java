@@ -7,17 +7,19 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "tickets")
 @Data
 @NoArgsConstructor
-public class Ticket extends BaseEntity {
+public class Ticket extends BaseEntity{
 
-    @Column(columnDefinition = "DATE")
+    @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime dateTime;
 
-    private int seatNumber;
-    private int rowNumber;
+    private Integer seatNumber;
+    private Integer rowNumber;
 
-    @ManyToOne
-    private UserAccount userAccount;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User userAccount;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private MovieCinema movieCinema;
 }

@@ -13,7 +13,7 @@ import java.util.Set;
 @Entity
 @Data
 @NoArgsConstructor
-public class Movie extends BaseEntity {
+public class Movie extends BaseEntity{
 
     private String name;
     @Column(columnDefinition = "DATE")
