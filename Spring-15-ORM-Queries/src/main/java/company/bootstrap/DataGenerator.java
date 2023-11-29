@@ -25,6 +25,12 @@ public class DataGenerator implements CommandLineRunner {
 
         System.out.println(regionRepository.findDistinctByCountry("Canada"));
 
+        System.out.println(regionRepository.findRegionByCountryContaining("United"));
+
+
+        System.out.println(regionRepository.findRegionByCountryContainingOrderByCountry("Asia"));
+
+        System.out.println(regionRepository.findTop2ByCountry("Canada"));
 
         System.out.println("----------------- REGION END ----------------------------");
     }
