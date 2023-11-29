@@ -2,6 +2,7 @@ package company.repository;
 
 import company.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -49,5 +50,20 @@ public interface EmployeeRepository extends JpaRepository<Employee,Long> {
 
     List<Employee> findEmployeeByEmailIsNull();
 
+
+
+//    JPQL QUERIES
+
+    @Query("SELECT e FROM Employee e WHERE e.email = 'sdubber7@t-online.de'")
+    Employee getEmployeeDetails();
+
+    @Query("SELECT e.salary FROM Employee e WHERE e.email = 'sdubber7@t-online.de'")
+    Employee getEmployeeSalary();
+
+    @Query("SELECT e FROM Employee e WHERE e.email = ?1")
+    Employee getEmployeeDetails(String email);
+
+    @Query("SELECT e FROM Employee  e WHERE e.email=?1 AND e.salary = ?2")
+    Employee getEmployeeDetails(String email, Integer salary);
 
 }
