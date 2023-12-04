@@ -1,8 +1,10 @@
 package company.bootstrap;
 
+import company.repository.CourseRepository;
 import company.repository.DepartmentRepository;
 import company.repository.EmployeeRepository;
 import company.repository.RegionRepository;
+import org.hibernate.event.spi.SaveOrUpdateEvent;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -12,11 +14,13 @@ public class DataGenerator implements CommandLineRunner {
     private final RegionRepository regionRepository;
     private final DepartmentRepository departmentRepository;
     private final EmployeeRepository employeeRepository;
+    private final CourseRepository courseRepository;
 
-    public DataGenerator(RegionRepository regionRepository, DepartmentRepository departmentRepository, EmployeeRepository employeeRepository) {
+    public DataGenerator(RegionRepository regionRepository, DepartmentRepository departmentRepository, EmployeeRepository employeeRepository, CourseRepository courseRepository) {
         this.regionRepository = regionRepository;
         this.departmentRepository = departmentRepository;
         this.employeeRepository = employeeRepository;
+        this.courseRepository = courseRepository;
     }
 
     @Override
@@ -52,7 +56,6 @@ public class DataGenerator implements CommandLineRunner {
         System.out.println("----------------- DEPARTMENT END ----------------------------");
 
 
-
         System.out.println("----------------- EMPLOYEE START -------------------------");
 
         System.out.println(employeeRepository.getEmployeeDetails());
@@ -61,10 +64,37 @@ public class DataGenerator implements CommandLineRunner {
 
         System.out.println(employeeRepository.getEmployeeDetails("sdubber7@t-online.de"));
 
-        System.out.println(employeeRepository.getEmployeeDetails("sdubber7@t-online.de",101066));
+        System.out.println(employeeRepository.getEmployeeDetails("sdubber7@t-online.de", 101066));
 
         System.out.println("----------------- EMPLOYEE END -------------------------");
 
 
+        System.out.println("----------------- COURSE START -------------------------");
+
+        courseRepository.findByCategory("Spring").forEach(System.out::println);
+
+        System.out.println("-------------------------------");
+
+        courseRepository.findByCategoryOrderByName("Spring").forEach(System.out::println);
+
+        System.out.println("--------------------------------");
+
+        System.out.println(courseRepository.existsByName("SWDWDWDWDWDWDWDW"));
+
+        System.out.println("------------------------------");
+
+
+        System.out.println(courseRepository.countCourseByCategory("Spring"));
+
+
+        System.out.println("-----------------------------");
+
+        courseRepository.findCourseByNameStartingWith("Getting").forEach(System.out::println);
+
+        System.out.println("-------------------------------");
+
+//        courseRepository.streamByCategory("Spring").forEach(System.out::println);
+
+        System.out.println("----------------- COURSE END -------------------------");
     }
 }
