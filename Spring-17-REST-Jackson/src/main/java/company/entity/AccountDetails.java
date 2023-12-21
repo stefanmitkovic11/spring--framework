@@ -1,6 +1,7 @@
 package company.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import company.enums.Role;
@@ -12,10 +13,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 //@JsonIgnoreProperties(value = {"state","postalCode"}, ignoreUnknown = true)
-@JsonIgnoreProperties(value = "{hibernateLazyInitializer}", ignoreUnknown = true)
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer"}, ignoreUnknown = true)
 public class AccountDetails extends BaseEntity{
 
     private String name;
+    @JsonIgnore
     private String address;
     private String country;
     private String city;

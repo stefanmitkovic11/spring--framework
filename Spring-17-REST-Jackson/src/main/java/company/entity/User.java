@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "user_account")
 @Data
 @NoArgsConstructor
-@JsonIgnoreProperties(value = "{hibernateLazyInitializer}", ignoreUnknown = true)
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer"}, ignoreUnknown = true)
 public class User extends BaseEntity{
 
 //    @JsonIgnore
