@@ -20,12 +20,12 @@ public class Consume_RestTemplate {
     }
 
     @GetMapping
-    public ResponseEntity<User[]> readAllUsers(){
+    public User[] readAllUsers(){
 
-        ResponseEntity<User[]> users = restTemplate.getForEntity(URI, User[].class);
+        ResponseEntity<User[]> responseEntity = restTemplate.getForEntity(URI, User[].class);
 
 
-        return ResponseEntity.ok(users).getBody();
+        return responseEntity.getBody();
     }
 
 
