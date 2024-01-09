@@ -2,10 +2,11 @@ package company.controller;
 
 import company.model.Organization;
 import company.service.OrganizationService;
-import jakarta.annotation.security.RolesAllowed;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.security.RolesAllowed;
 
 @RestController
 @RequestMapping(value = "/v1/organization")
