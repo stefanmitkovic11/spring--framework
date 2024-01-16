@@ -1,5 +1,6 @@
 package company.controller;
 
+import company.annotation.Loggable;
 import company.dto.CourseDTO;
 import company.service.CourseService;
 import org.slf4j.Logger;
@@ -30,6 +31,7 @@ public class CourseController {
         return list;
     }
 
+    @Loggable
     @GetMapping("/{id}")
     public CourseDTO getCourseById(@PathVariable("id") Long courseId) {
         return courseService.getCourseById(courseId);
@@ -40,6 +42,7 @@ public class CourseController {
         return courseService.getCoursesByCategory(category)       ;
     }
 
+    @Loggable
     @PostMapping
     public CourseDTO createCourse(@RequestBody CourseDTO course) {
         return courseService.createCourse(course);
