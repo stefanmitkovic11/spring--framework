@@ -64,6 +64,4 @@ class ProjectServiceImplTest {
 
         verify(projectRepository).save(project);
     }
-
-
 }
