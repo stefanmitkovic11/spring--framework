@@ -45,7 +45,7 @@ class WelcomeControllerTest {
 
         mockMvc.perform(request)
                 .andExpect(status().isOk())
-                .andExpect(content().string("Welcome"))
+                .andExpect(content().string("welcome"))
                 .andReturn();
     }
 
